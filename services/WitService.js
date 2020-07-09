@@ -11,8 +11,7 @@ class WitService {
     const { entities, intents } = queryResult;
     //console.log(queryResult);
 
-    const extractedEntities = { intents };
-    console.log(entities);
+    const extractedEntities = { intent: intents[0].name };
 
     Object.keys(entities).forEach((key) => {
       extractedEntities[entities[key][0].role] = entities[key][0].value;
