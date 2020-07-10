@@ -9,6 +9,7 @@ const SessionService = require('./services/SessionService');
 
 const indexRouter = require('./routes/index');
 const slackRouter = require('./routes/bots/slack');
+const alexaRouter = require('./routes/bots/alexa');
 
 module.exports = (config) => {
   const app = express();
@@ -22,10 +23,17 @@ module.exports = (config) => {
   app.set('view engine', 'ejs');
 
   app.use(logger('dev'));
+
   app.use(
     '/bots/slack',
-    slackRouter({ reservationService, witService, config, sessionService })
+    slackRouter({
+      reservationService,
+      witService,
+      config,
+      sessionService,
+    })
   );
+
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
   app.use(express.static(path.join(__dirname, 'public')));
@@ -37,6 +45,16 @@ module.exports = (config) => {
     }
     return next();
   });
+
+  app.use(
+    '/bots/alexa',
+    alexaRouter({
+      reservationService,
+      witService,
+      config,
+      sessionService,
+    })
+  );
 
   app.use('/', indexRouter({ reservationService, config }));
 

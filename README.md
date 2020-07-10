@@ -1,18 +1,17 @@
-# Building bots with Node.js
+# reservation-bot
 
-This repository contains the code for my course 'Building Bots with Node.js' on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/daniel-khan).
+Slack and Alexa bots with Node.js
 
-The master branch contains the initial version to get started with, while the branches contain the state of the code at the beginning (e.g. 02_02**b**) and end (e.g. 02_02**e**) of a video.
+The following application creates a reservation at "Golden Spoon" restaurant using Slack @resi bot and Amazom Alexa.
 
-## Setting up the project
+## Built With
 
-* In your terminal, create directory `building-bots-reservation` and **change into it**.
-* Run 
-  ```bash
-  git clone --bare git@github.com:danielkhan/building-bots-reservation.git .git
-  git config --bool core.bare false
-  git reset --hard
-  git branch
-  ```
-* With a branch you want to use checked out, run `npm install` and `npm run dev`
-* This will run the application via nodemon and it will listen on `http://localhost:3000`
+<ul>
+    <li>JavaScript</li>
+    <li>Node.js</li>
+    <li>Wit.ai</li>
+</ul>
+
+[![Slack bot example](https://user-images.githubusercontent.com/25894229/87183179-9bf9df00-c2b3-11ea-9b54-26f582eea2ac.PNG)](https://youtu.be/Ux4F-2B33Pg)
+
+[![Alexa example](https://user-images.githubusercontent.com/25894229/87183427-22162580-c2b4-11ea-8e27-a0b4e10aca9c.jpg)](https://youtu.be/kU1B_XWFvz8)

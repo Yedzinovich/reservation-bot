@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "silver spoon",
+      "invocationName": "golden spoon",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -13,9 +13,7 @@
         },
         {
           "name": "AMAZON.StopIntent",
-          "samples": [
-            "stop"
-          ]
+          "samples": ["stop"]
         },
         {
           "name": "reservation",
@@ -25,9 +23,7 @@
               "type": "AMAZON.SearchQuery"
             }
           ],
-          "samples": [
-            " {any}"
-          ]
+          "samples": [" {any}"]
         },
         {
           "name": "AMAZON.NavigateHomeIntent",

@@ -1,7 +1,10 @@
+/* eslint-disable comma-dangle */
 const express = require('express');
 const { createEventAdapter } = require('@slack/events-api');
 const { WebClient } = require('@slack/web-api');
 const moment = require('moment');
+
+const ConversationService = require('../../services/ConversationService');
 
 const router = express.Router();
 
@@ -21,12 +24,20 @@ module.exports = (params) => {
     const mention = /<@[A-Z0-9]+>/;
     const eventText = event.text.replace(mention, '').trim();
 
+    const context = await ConversationService.run(
+      witService,
+      eventText,
+      session.context
+    );
+    const { conversation } = context;
+    const { entities } = conversation;
+    console.log(entities);
+
     let text = '';
 
-    if (!eventText) {
-      text = 'Hey!';
+    if (!conversation.complete) {
+      text = conversation.followUp;
     } else {
-      const entities = await witService.query(eventText);
       const {
         intent,
         customerName,
@@ -34,23 +45,17 @@ module.exports = (params) => {
         numberOfGuests,
       } = entities;
 
-      if (
-        !intent ||
-        intent !== 'reservation' ||
-        !customerName ||
-        !reservationDateTime ||
-        !numberOfGuests
-      ) {
-        text = 'Sorry - could you rephrase that?';
-        console.log(entities);
-      } else {
-        const reservationResult = await reservationService.tryReservation(
-          moment(reservationDateTime).unix(),
-          numberOfGuests,
-          customerName
-        );
-        text = reservationResult.success || reservationResult.error;
-      }
+      const reservationResult = await reservationService.tryReservation(
+        moment(reservationDateTime).unix(),
+        numberOfGuests,
+        customerName
+      );
+      text = reservationResult.success || reservationResult.error;
+    }
+
+    if (conversation.exit || conversation.complete) {
+      // eslint-disable-next-line no-param-reassign
+      session.context.conversation = {};
     }
 
     return slackWebClient.chat.postMessage({

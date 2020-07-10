@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "node ./bin/www",
-    "start": "cross-env DEBUG='reservation:*,@slack/events-api:*' nodemon ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "cross-env DEBUG='reservation:*,@slack/events-api:*' nodemon ./bin/www"
   },
   "dependencies": {
     "@slack/events-api": "^2.3.3",
     "@slack/web-api": "^5.10.0",
+    "ask-sdk-core": "^2.8.0",
+    "ask-sdk-model": "^1.28.0",
     "debug": "~2.6.9",
     "dotenv": "^8.0.0",
     "ejs": "~2.5.7",
