@@ -14,5 +14,5 @@ The following application creates a reservation at "Golden Spoon" restaurant usi
 
 Click on images to see a video presentation of the application. 
 
-[![Slack bot example](https://user-images.githubusercontent.com/25894229/87184149-78d02f00-c2b5-11ea-99ae-013d66ae60a1.jpg)](https://youtu.be/Ux4F-2B33Pg)
-[![Alexa example](https://user-images.githubusercontent.com/25894229/87184147-78d02f00-c2b5-11ea-84a5-f1e809802379.jpg)]{:height="36px" width="36px"}(https://youtu.be/kU1B_XWFvz8)
+[![Slack bot example](https://user-images.githubusercontent.com/25894229/87185120-34459300-c2b7-11ea-910a-c4fc716ebdde.png)](https://youtu.be/Ux4F-2B33Pg)
+[![Alexa example](https://user-images.githubusercontent.com/25894229/87185247-753da780-c2b7-11ea-8b0c-ddf03218482c.png)](https://youtu.be/kU1B_XWFvz8)
