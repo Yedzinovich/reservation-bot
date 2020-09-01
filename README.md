@@ -10,6 +10,7 @@ The following application creates a reservation at "Golden Spoon" restaurant usi
     <li>JavaScript</li>
     <li>Node.js</li>
     <li>Wit.ai</li>
+    <li>AWS</li>
 </ul>
 
 Click on images to see a video presentation of the application. 
