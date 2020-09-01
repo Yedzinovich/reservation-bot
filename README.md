@@ -2,7 +2,7 @@
 
 Slack and Alexa bots with Node.js (natural language processing)
 
-The following application creates a reservation at "Golden Spoon" restaurant using Slack @resi bot and Amazom Alexa.
+The following application creates a reservation at "Golden Spoon" restaurant using Slack @resi bot and Amazon Alexa.
 
 ## Built With
 
